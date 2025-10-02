@@ -68,7 +68,7 @@ A demonstration video is available in the repository (managed with **Git LFS** a
 - ImGui  
 - Standard C++ libraries (GLFW/GLUT, GLM, stb_image, etc.)  
 
-### Example build
+### Launch the game !
 ```bash
 cd golf
 make
