@@ -70,7 +70,6 @@ A demonstration video is available in the repository (managed with **Git LFS** a
 
 ### Example build
 ```bash
-mkdir build && cd build
-cmake ..
+cd golf
 make
-./golf_project
+./golf
