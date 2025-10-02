@@ -1,76 +1,75 @@
-# Golf Project – Simulation 3D
+# Golf Project – 3D Simulation
 
-Projet réalisé dans le cadre du cours **Informatique Graphique 3D (CSC_43043_EP)**.  
-Auteur : **Pierre Bernadet**
+Project carried out as part of the course **Computer Graphics 3D (CSC_43043_EP)**.  
+Author: **Pierre Bernadet**
 
-## 🎮 Description
+## Description
 
-Ce projet consiste en la création d’un **jeu de golf interactif en 3D**.  
-Il combine un intérêt personnel pour le golf avec des techniques d’**informatique graphique** : génération procédurale de terrain, rendu temps réel, simulation physique et interface utilisateur.
+This project consists of creating an **interactive 3D golf game**.  
+It combines a recent personal interest in golf with several **computer graphics techniques**: procedural terrain generation, real-time rendering, physics simulation, and user interface.
 
-L’objectif principal est de simuler le mouvement d’une balle de golf sur un parcours généré, avec gestion des collisions, frottements, rebonds et conditions de victoire.
-
----
-
-## 🌍 Environnement 3D
-
-- **Terrain texturé** avec fonction de hauteur basée sur :
-  - combinaisons de gaussiennes,
-  - bruit de Perlin atténué par une fonction de lissage cosinus,
-  - fonction *smoothstep* pour transitions douces.
-- **Green** (zone plane autour du trou).
-- **Surface d’eau** animée (vagues par bruit de Perlin + transparence).
-- **Skybox panoramique** mappée sur un cube.
-- **Végétation** : herbe (billboards) + arbres importés en `.obj`.
-- **Drapeau animé** par un shader sinusoïdal (effet de vent).
-- **Trou** matérialisé par un disque noir au centre du green.
+The main objective is to simulate the motion of a golf ball on a generated course, including collision handling, friction, rebounds, and victory conditions.
 
 ---
 
-## ⚙️ Simulation physique
+## Environment
 
-- **Intégration du mouvement** avec accélération gravitationnelle.  
-- **Collisions terrain/balle** avec correction de position et rebonds.  
-- **Frottements** différents selon terrain ou green.  
-- **Conditions spéciales** :
-  - Balle hors-terrain → réinitialisée.
-  - Entrée dans le trou → victoire détectée.  
-- **Interface de tir** :
-  - Flèche directionnelle colorée selon la puissance.
-  - Contrôles :  
-    - `A` / `D` → ajuster l’angle horizontal  
-    - `W` / `S` → ajuster l’angle vertical  
-    - `Q` / `E` → modifier la puissance  
-    - `Espace` → tirer  
+- **Textured terrain** with height function based on:
+  - combinations of Gaussian hills,
+  - Perlin noise attenuated with a cosine smoothing function,
+  - smoothstep for smooth transitions.
+- **Green** (flat area around the hole).
+- **Water surface** animated with Perlin noise and transparency.
+- **Skybox** built from a panoramic image mapped on a cube.
+- **Vegetation**: grass using billboards, trees imported from `.obj` meshes.
+- **Flag** animated with a sinusoidal shader to simulate wind.
+- **Hole** represented by a black disk at the center of the green.
 
 ---
 
-## ➕ Extensions
+## Physics Simulation
 
-- Trois clubs disponibles : **fer 7**, **wedge**, **putter** (vitesses et angles différents).  
-- Caméras : **vue libre** ou **suivi automatique de la balle**.  
-- Interface temps réel via **ImGui** (nombre de coups).  
-- Message de félicitations en cas de réussite.  
-- Tentative (non finalisée) d’effets visuels : éclaboussure dans l’eau, impact au sol.
+- **Motion integration** with gravitational acceleration.  
+- **Ball-terrain collisions** with position correction and rebounds.  
+- **Friction** depending on terrain or green.  
+- **Special conditions**:
+  - Ball outside terrain → reset.  
+  - Ball in hole → win detected.  
+- **Shooting interface**:
+  - Directional arrow with color gradient according to power.  
+  - Controls:  
+    - `A` / `D` → adjust horizontal angle  
+    - `W` / `S` → adjust vertical angle  
+    - `Q` / `E` → change shooting power  
+    - `Space` → shoot  
 
 ---
 
-## 📹 Démonstration
+## Extensions
 
-Une vidéo de démonstration est disponible dans le dépôt (gérée avec **Git LFS** car >100 Mo).
+- Three clubs available: **7 iron**, **wedge**, **putter** (different speeds and shooting angles).  
+- Camera modes: **free view** or **automatic tracking** of the ball.  
+- Real-time interface with **ImGui** (shot counter).  
+- Congratulatory message displayed when the ball enters the hole.  
+- Attempted but not completed: splash effect in water, impact effect on ground.
 
 ---
 
-## 🚀 Lancer le projet
+## Demonstration
 
-### Prérequis
+A demonstration video is available in the repository (managed with **Git LFS** as it exceeds 100 MB).
+
+---
+
+## Build and Run
+
+### Requirements
 - OpenGL  
 - ImGui  
-- Bibliothèques standards C++ (GLFW/GLUT, GLM, stb_image, etc.)  
+- Standard C++ libraries (GLFW/GLUT, GLM, stb_image, etc.)  
 
-### Compilation & exécution
+### Example build
 ```bash
-# Exemple (adapter selon ton système / IDE)
 mkdir build && cd build
 cmake ..
 make
